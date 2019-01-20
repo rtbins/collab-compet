@@ -81,4 +81,4 @@ The project consists of these files
 - checkpoint_critic.pth - saved trained model for critic(pytorch)
 - config.py - configs and different hyperparameters for training.
 - memory.py - implementation class for replay buffer.
--multiagent.py - the Multi Agent class
+- multiagent.py - the Multi Agent class
