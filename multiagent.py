@@ -1,6 +1,8 @@
 
-from ddpg_agent import DDPGAgent
+from ddpg_agent import Agent
 import numpy as np
+
+# https://github.com/Catastropha/tennis/blob/master/ma.py
 
 
 class MultiAgent:
@@ -11,7 +13,7 @@ class MultiAgent:
       self.memory = config.memory_fn()
       self.config.memory = self.memory
 
-    self.ddpg_agents = [DDPGAgent(self.config)
+    self.ddpg_agents = [Agent(self.config)
                         for _ in range(config.num_agents)]
 
     self.t_step = 0

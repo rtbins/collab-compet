@@ -66,6 +66,14 @@ class Agent():
     # Noise process
     self.noise = OUNoise(self.action_size, config.random_seed)
 
+    self.soft_update(self.critic_local, self.critic_target, 1)
+    self.soft_update(self.actor_local, self.actor_target, 1)
+
+    if config.shared_replay_buffer:
+          self.memory = config.memory
+    else:
+        self.memory = config.memory_fn()
+
     # Replay memory
     self.memory = ReplayBuffer(
         self.action_size, config.buffer_size, config.batch_size, config.random_seed)
